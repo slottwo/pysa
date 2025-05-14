@@ -68,21 +68,43 @@ def DFS(node: Node):
             stack.extend(node.children)
 
 
-def DLS(node, depth):
+def DLS(node: Node, depth: int):
     """
     Depth Limited Search
 
     - Time: O(b**l)
     - Space: O(b*l)
     """
-    ...
+    if depth == 0:
+        if node.is_goal:
+            return node, True
+        else:
+            None, True
+
+    any_remaining = False
+
+    for child in node.children:
+        found, remaining = DLS(child, depth - 1)
+        if not found:
+            return found, True
+        if remaining:
+            any_remaining = True
+
+    return None, any_remaining
 
 
-def IDS(node, depth):
+def IDS(node: Node) -> Node | None:
     """
     Iterative Deepening Depth-First Search
 
     - Time: O(b**m)
     - Space: O(b*m)
     """
-    ...
+    depth = 0
+    while True:
+        found, remaining = DLS(node, depth)
+        if not found:
+            return found
+        if not remaining:
+            return None
+        depth += 1
