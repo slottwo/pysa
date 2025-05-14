@@ -1,0 +1,44 @@
+[project]
+name = "ai"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Pedro Galvão",email = "41028091+slottwo@users.noreply.github.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12,<4.0"
+dependencies = [
+]
+
+[tool.poetry]
+packages = [{include = "ai", from = "src"}]
+
+[tool.poetry.group.dev.dependencies]
+pytest     = "^8.3.5"
+pytest-cov = "^6.1.1"
+ruff       = "^0.11.9"
+taskipy    = "^1.14.1"
+
+[tool.taskipy.tasks]
+lint       = "ruff check"
+pre_format = "task lint --fix"
+format     = "ruff format"
+
+[tool.ruff]
+line-length = 79
+
+[tool.ruff.lint]
+preview = true
+select = ['I', 'F', 'E', 'W', 'PL', 'PT']
+
+[tool.ruff.format]
+preview = true
+quote-style = 'preserve'
+
+[tool.pytest.ini_options]
+pythonpath = "."
+addopts = '-p no:warnings'
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
