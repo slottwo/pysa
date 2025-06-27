@@ -32,12 +32,12 @@ class Node:
 
     @property
     def children(self) -> set:
-        # if self.turn == 0:
-        #     return {
-        #         Node('x' + BLANK * 8, 1),
-        #         Node(BLANK + 'x' + BLANK * 7, 1),
-        #         Node(BLANK * 4 + 'x' + BLANK * 4, 1),
-        #     }
+        if self.turn == 0:
+            return {
+                Node('x' + BLANK * 8, 1),
+                Node(BLANK + 'x' + BLANK * 7, 1),
+                Node(BLANK * 4 + 'x' + BLANK * 4, 1),
+            }
 
         return {
             Node(
