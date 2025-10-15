@@ -1,4 +1,4 @@
-from ai.node import Node, dataclass
+from pysa.node import Node, dataclass
 
 
 @dataclass

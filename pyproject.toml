@@ -1,7 +1,7 @@
 [project]
-name = "ai"
+name = "pysa"
 version = "0.1.0"
-description = ""
+description = "Python Search Algorithms"
 authors = [
     {name = "Pedro Galvão",email = "41028091+slottwo@users.noreply.github.com"}
 ]
@@ -11,7 +11,7 @@ dependencies = [
 ]
 
 [tool.poetry]
-packages = [{include = "ai", from = "src"}]
+packages = [{include = "pysa", from = "src"}]
 
 [tool.poetry.group.dev.dependencies]
 pytest     = "^8.3.5"

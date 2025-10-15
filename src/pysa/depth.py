@@ -1,4 +1,4 @@
-from ai.node import Node
+from pysa.node import Node
 
 
 def DFS(node: Node):
